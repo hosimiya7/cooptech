@@ -1,0 +1,401 @@
+$color: rgb(255, 159, 80);
+$sub-color: rgba(170, 170, 170, 0.877);
+$sub-color2: rgba(204, 204, 204, 0.384);
+$sub-color3: #444;
+
+
+$breakpoints: (
+  'sm': 'screen and (max-width: 480px)',
+  'md': 'screen and (max-width: 900px)',
+  'lg': 'screen and (max-width: 1350px)',
+  'xl': 'screen and (min-width: 1350px)',
+
+) !default;
+
+@mixin mq($breakpoint: md){
+    @media #{map-get($breakpoints, $breakpoint)}{
+        @content;
+    }
+}
+
+
+/* すべてについて */
+
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    color: #444;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    letter-spacing: 1.7px;
+    line-height: 2;
+    overflow-wrap: break-word;
+}
+
+
+/* 動きや色について */
+
+.center{
+    text-align: center;
+}
+
+.block{
+    color: #fff;
+    @include mq(md){
+        display: inline-block;
+    }
+}
+
+.theme-color{
+    color: $color;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    @include mq(md){
+        display: inline-block;
+    }
+}
+
+.none{
+    @include mq(md){
+        display: none;
+    }
+}
+
+/* 要素ごと */
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+h2{
+    margin: 2em 0 1em 0;
+}
+
+i{
+    margin: 0 1em;
+    @include mq(sm){
+        margin: 0 0.2em;
+    }
+}
+
+
+/* ヘッダーについて */
+
+.header-top{
+    margin: 1em;
+    position: relative;
+    h1{
+        display: inline-block;
+        font-size: 2em;
+        margin: 0.7rem;
+        letter-spacing: 2.3px;
+        background-color: $color;
+        border-radius: 60% 80% / 90% 43%;
+        @include mq(md){
+            font-size: 1.4em;
+        }
+    }
+    p{
+        font-size: 1.5em;
+        font-weight: bolder;
+        @include mq(lg){
+            font-size: 1.4em;
+        }
+    }
+}
+
+.header-logo{
+    position: absolute;
+    left: 1em;
+    @include mq(md){
+        position: static;
+    }
+}
+
+
+.header-img{
+    background-image: url(img/coding.jpg);
+    border-radius: 10% 30% / 20% 10%;
+    height: 570px;
+    @include mq(md){
+        text-align: center;
+    }
+    p{
+        font-weight: bold;
+        font-size: 3em;
+        color: #fff;
+        padding-top: 0.5em;
+        @include mq(md){
+            font-size: 2rem;
+        }
+    }
+}
+
+.header-list{
+    display: inline-block;
+    text-align: left;
+    @include mq(md){
+        text-align: center;
+        margin-top: 2em;
+    }
+    ul{
+        @include mq(md){
+            text-align: center;
+            margin: 0 auto;
+        }
+        li{
+            margin: 1em 0 0 4em;
+            @include mq(md){
+                margin: 1em 0 0 0;
+            }
+            a{
+                color: #fff;
+                font-size: 1.5em;
+                font-weight: bolder;
+                &:hover{
+                    color: $color;
+
+                }
+            }
+        }
+    }
+}
+
+
+main{
+    text-align: center;
+    position: relative;
+    padding-top: 800px;
+    @include mq(lg){
+        padding-top: 3em;
+    }
+    .main-top{
+        display: inline-block;
+        background-color: $sub-color;
+        border-radius: 70% 40% /90% 70%;
+        width: 600px;
+        height: 300px;
+        // margin-top: 5em;
+        // margin-right: 35%;
+        position: absolute;
+        top: 5em;
+        left: 9%;
+        @include mq(lg){
+            position: static;
+            margin: 2em 0;
+        }
+        @include mq(md){
+            width: 500px;
+            height: auto;
+        }
+        @include mq(sm){
+            width: 90%;
+            height: auto;
+        }
+    }
+}
+
+#policy{
+    padding-bottom: 3em;
+    .policy-top{
+        display: inline-block;
+        background-color: $sub-color2;
+        width: 800px;
+        height: auto;
+        padding-bottom: 2em;
+        // margin-left: 30%;
+        // margin-bottom: 3em;
+        position: absolute;
+        top: 15em;
+        right: 6%;
+        border-radius: 80% 30% /40% 70%;
+        @include mq(lg){
+            position: static;
+            margin: 2em 0;
+        }
+        @include mq(md){
+            width: 500px;
+            
+        }
+        @include mq(sm){
+            width: 90%;
+        }
+        p{
+            margin: 1em auto;
+            width: 90%;
+            overflow-wrap: break-word;
+        }
+    }
+}
+
+#works{
+    display: inline-block;
+    background-color: $sub-color3;
+    width: 500px;
+    height: auto;
+    padding-bottom: 2em;
+    // margin-left: 30%;
+    // margin-bottom: 3em;
+    position: absolute;
+    top: 30em;
+    left: 5em;
+    border-radius: 30% 80% /30% 60%;
+    @include mq(lg){
+        position: static;
+        margin: 2em 0 4em 0;
+    }
+    @include mq(md){
+        width: 500px;
+    }
+    @include mq(sm){
+        width: 90%;
+    }
+    a{
+        color: $sub-color;
+    }
+    i{
+        color: $sub-color;
+    }
+    p{
+        color: $sub-color;
+    }
+    .theme-color{
+        color: $color;
+    }
+}
+
+#feature{
+    border-top: 50px dashed $sub-color3;
+    border-bottom: 50px dashed $sub-color3;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    @include mq(sm){
+        border-top: 30px dashed $sub-color3;
+        border-bottom: 30px dashed $sub-color3;
+        
+    }
+    h2{
+        background-color: $sub-color2;
+        padding: 3em 0;
+    }
+    .feature-content{
+        display: inline-block;
+        width: 350px;
+        margin: 2em;
+        padding: 1em;
+        @include mq(md){
+            width: 500px;
+            margin: 2em auto;
+        }
+        @include mq(sm){
+            width: 90%;
+            margin: 2em auto;
+        }
+        i{
+            color: $color;
+        }
+        h3{
+            margin: 1em 0;
+        }
+    }
+    .feature-back{
+        background-color: $sub-color2;
+        border-radius: 25px;
+    }
+}
+
+#recruitment{
+    margin: 2em 0;
+    border-bottom: 50px dashed $sub-color3;
+    @include mq(sm){
+        border-bottom: 30px dashed $sub-color3;
+    }
+    .recruitment-content{
+        width: 38%;
+        padding: 1em 0;
+        margin: 1em 2em;
+        background-color: $sub-color2;
+        @include mq(md){
+            margin: 2em auto;
+            width: 500px;
+        }
+        @include mq(sm){
+            margin: 2em auto;
+            width: 90%;
+        }
+        p{
+            margin-top: 1em;
+        }
+    }
+
+    .recruitment-good{
+        border-radius: 30% 70% 0% 100% / 30% 100% 0% 70%;
+        @include mq(md){
+            border-radius: 50%;
+        }
+    }
+    .recruitment-bad{
+        border-radius: 70% 30% 100% 0% / 100% 30% 70% 0%;
+        @include mq(md){
+            border-radius: 50%;
+            margin-top: 3em;
+        }
+    }
+    .recruitment-caution{
+        margin: 3em 0;
+        padding-bottom: 2em;
+        @include mq(md){
+            width: 500px;
+            margin: 2em auto;
+        }
+        @include mq(sm){
+            width: 90%;
+            margin: 2em auto;
+        }
+    }
+}
+
+#form{
+    margin-bottom: 2em;
+    i{
+        color: rgb(74, 209, 250);
+        font-size: 2em;
+        margin-bottom: 1em;
+    }
+    input, textarea{
+        border: 1px solid $sub-color3;
+        @include mq(sm){
+            width: 90%;
+        }
+    }
+}
+
+footer{
+    background-color: $sub-color3;
+    padding: 2em 0;
+    .footer-c{
+        text-align: center;
+        color: #fff;
+    }
+}
+
+.response{
+    text-align: center;
+    h1{
+        margin: 1.5em 0;
+    }
+    p{
+        margin: 1em 0;
+    }
+    i{
+        color: $color;
+    }
+}
+
